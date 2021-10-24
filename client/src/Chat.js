@@ -4,7 +4,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import {AiFillPlusCircle} from 'react-icons/ai';
 import Avatar from 'react-avatar';
 
-export default function Chat({socket,name, room_id}) {
+export default function Chat({socket,name, room}) {
     const [messageList, setMessageList] = useState([]);
     const [text, setText] = useState("");
     const [image, setImage] = useState("");
@@ -22,7 +22,7 @@ export default function Chat({socket,name, room_id}) {
             {
                 type: "image",
                 author: name,
-                room: room_id,
+                room: room,
                 params: {
                   file: reader_res,
                 },
@@ -43,7 +43,7 @@ export default function Chat({socket,name, room_id}) {
         {
             type: "text",
             author: name,
-            room: room_id,
+            room: room,
             params: {
               content: text,
             },
@@ -55,7 +55,7 @@ export default function Chat({socket,name, room_id}) {
   
     useEffect(() => {
       socket.on("message_recieve",(message_data) => {
-        
+        console.log("recieve")
         setMessageList((list) => [...list,message_data]);
         
       });
@@ -87,7 +87,7 @@ export default function Chat({socket,name, room_id}) {
                         const lastMessageSameAuthor = (messageList[index-1] && message.author !== messageList[index-1].author || !messageList[index-1]);
 
                         if (message.type === "image") {
-                            return <div className={`message_content ${lastMessageSameAuthor ? "close" : "far"}`}>
+                            return <div className={`message ${lastMessageSameAuthor ? "far" : "close"}`}>
                                <div className="avatar">{addAvatar(message,index)} </div>
                                 
                                 <div className="message_content">

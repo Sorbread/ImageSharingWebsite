@@ -18,6 +18,10 @@ const io = new Server(server, {
 io.on("connection",(socket) => {
     console.log(`${new Date(Date.now()).getHours()+":"+new Date(Date.now()).getMinutes()} [Server] A client has connected!`);
 
+    socket.on("join_room",(data) => {
+        socket.join(data.room);
+    })
+
     socket.on("message_send",(data) => {
         socket.to(data.room).emit("message_recieve",data);
     })
