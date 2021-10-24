@@ -19,7 +19,7 @@ io.on("connection",(socket) => {
     console.log(`${new Date(Date.now()).getHours()+":"+new Date(Date.now()).getMinutes()} [Server] A client has connected!`);
 
     socket.on("message_send",(data) => {
-        socket.broadcast.emit("message_recieve",data);
+        socket.to(data.room).emit("message_recieve",data);
     })
 
     socket.on("disconnect",() => {

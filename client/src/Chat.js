@@ -4,7 +4,7 @@ import ScrollToBottom from 'react-scroll-to-bottom';
 import {AiFillPlusCircle} from 'react-icons/ai';
 import Avatar from 'react-avatar';
 
-export default function Chat({socket,name}) {
+export default function Chat({socket,name, room_id}) {
     const [messageList, setMessageList] = useState([]);
     const [text, setText] = useState("");
     const [image, setImage] = useState("");
@@ -22,6 +22,7 @@ export default function Chat({socket,name}) {
             {
                 type: "image",
                 author: name,
+                room: room_id,
                 params: {
                   file: reader_res,
                 },
@@ -42,6 +43,7 @@ export default function Chat({socket,name}) {
         {
             type: "text",
             author: name,
+            room: room_id,
             params: {
               content: text,
             },
@@ -65,7 +67,7 @@ export default function Chat({socket,name}) {
             return (
                 <div className="message_author">
                     
-                    <Avatar name="W" size={40} />
+                    <Avatar name={message.author} size={40} />
                 </div>
             )
         }
