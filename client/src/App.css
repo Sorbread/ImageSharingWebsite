@@ -1,0 +1,120 @@
+* {
+  background-color: #2C2F33;
+  font-family: "Open Sans", sans-serif;
+}
+
+.message_container {
+  height: 30rem;
+  border: 1px solid #000000;
+  width: 90%;
+}
+
+.message_container .message {
+  height: auto;
+  width: auto;
+  min-height: .5rem;
+  max-width: 85%;
+
+  border-radius: 5px;
+  margin-left: 2.5%;
+  margin-top: 5px;
+
+  display: flex;
+}
+
+.close {
+  padding: 0rem 1rem .25rem;
+}
+.far {
+  padding: .25rem 5rem .25rem;
+}
+
+.message_container {
+  position: relative;
+}
+
+.message_container .avatar {
+  margin-left: 0rem;
+  background-color: inherit;
+  
+}
+
+.fillInAvatar {
+  width: 40px; height: 40px; line-height: initial; text-align: center; color: rgb(255, 255, 255); background: transparent;
+}
+
+.message_container .message .message_author {
+  display: grid;
+  background-color: inherit;
+}
+
+.message_container .message h1 {
+  font-size: 15px;
+  color: rgb(255, 136, 0);
+  background-color: inherit;
+}
+
+.message_container .message img {
+  width: auto;
+  height: auto;
+  max-width: 25%;
+  max-height: 20rem;
+  display:list-item;
+}
+
+.message_container .message p {
+  color: white;
+  word-wrap: break-word;
+  font-weight:600;
+  background-color: inherit;
+  
+}
+
+.message_container .message:hover {
+  background-color: #23272A;
+}
+
+.message_container .message .message_content {
+  margin-left: 2rem;
+  background-color: inherit;
+}
+
+.far {
+  padding-left: 0;
+}
+
+.close {
+  padding: 0;
+}
+
+
+.chat_footer {
+  padding: 2%;
+  width: 50%;
+  height: 10%;
+  font-size: 30px;
+
+  display: flex;
+  
+}
+
+.chat_footer input[type="file"] {
+  display: none;
+}
+
+.chat_footer .file_upload {
+  height: 0;
+  
+}
+
+.chat_footer .file_upload label {
+  height: 0;
+  cursor: pointer;
+}
+
+.chat_footer .text_upload input{
+  font-size: 25px;
+  outline: none;
+  background: transparent;
+  color: white;
+}
